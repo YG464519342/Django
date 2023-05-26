@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href= "{% static 'bootstrap-4.6.2/css/bootstrap.min.css' %}">
+    <style>
+        .login-box{
+            width: 400px;
+            height: 280px;
+            margin-left: auto;
+            margin: auto;
+            border: 1px solid #dddddd;
+            margin-top: 200px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .login-box h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div  class="login-box">
+        <h2>用户登陆</h2>
+        <form method="post" action="/login/">
+            {% csrf_token %}
+            <div class="form-group">
+              <label >用户名</label>
+              <input type="text" class="form-control" placeholder="请输入用户名" name="user" >
+            </div>
+            <div class="form-group">
+              <label >密码</label>
+              <input type="password" class="form-control" placeholder="请输入用户名" name="pwd">
+            </div>
+            <button type="submit" class="btn btn-primary">提 交</button>
+            <span style="color: red;">{{ error }}</span>
+          </form>
+          <!-- <img src="/static/1.jpg"> -->
+    </div>
+    <!-- <script src="{% static 'bootstrap-4.6.2/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jquery-3.6.0.min.js' %}"></script>  -->
+</body>
+
+</html>
